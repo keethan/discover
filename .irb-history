@@ -1,0 +1,50 @@
+exit
+start_test_server_in_background
+performAction('long_press_on_view_by_id', 'changelog_screen_width_phone')
+query('ImageView')
+query('ImageView', :id)
+performAction('long_press_on_view_by_id', 'changelog_screen_width_phone')
+touch("ImageView id:'changelog_screen_width_phone'")
+query("imageview id:'changelog_screen_width_phone'")
+performAction('click_on_view_by_id', 'changelog_screen_width_phone')
+query("imageview id:'changelog_screen_width_phone'")
+touch("ImageView id:'changelog_screen_width_phone'")
+exit
+query('AndroidAppWidgetView')
+query('AppWidgetHostView')
+query('AppWidgetHostView')
+exit
+start_test_server_in_background
+query('AppWidgetHostView')
+exit
+start_test_server_in_background
+performAction('press_long_on_text_and_select_with_index', 'changelog_screen_width_phone', 1)
+query('textview')
+query('textview', :text)
+performAction('press_long_on_text_and_select_with_index', 'Anleitung', 1)
+exit
+start_test_server_in_background
+performAction('click_on_text', 'Tap on the refresh button to update your services');
+exit
+start_test_server_in_background
+query("ImageView")
+query("ImageView id:changelog_screen_width_phone")
+query("ImageView",  id:'changelog_screen_width_phone')
+query("ImageView",  :id 'changelog_screen_width_phone')
+query("ImageView id:'changelog_screen_width_phone'")
+query("ImageView")
+query("ImageView", :id)
+start_test_server_in_background
+query("imageView")
+query("view")
+query("textview")
+performAction('click_on_view_by_id','appwidgetpicker_textview'
+performAction('click_on_view_by_id','appwidgetpicker_textview')
+performAction('click_on_view_by_id','appwidgetpicker_textview')
+exit
+start_test_server_in_background
+performAction('click_on_view_by_id','appwidgetpicker_textview')
+exit
+start_test_server_in_background
+query("ImageView id:'changelog_screen_width_phone'")
+exit

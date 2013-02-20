@@ -1,0 +1,140 @@
+Given /^that I have a device with the Discover Client installed on it$/ do
+    begin
+	puts 'Running step: ...'
+        startTime = Time.now.to_f
+#TODO: Implement this
+        elapsedTime = Time.now.to_f - startTime
+        puts "Step finished: ... Elapsed time: " + elapsedTime.to_s
+    rescue Calabash::Android::Operations::OperationsError => oe
+        raise oe
+    rescue Exception => e
+        raise e
+    end
+end
+
+
+
+And /^that the client has not yet been activated$/ do
+    begin
+	puts 'Running step: ...'
+        startTime = Time.now.to_f
+
+	system 'adb shell pm clear com.vodafone.smhs'
+	performAction('wait', 3)
+
+        elapsedTime = Time.now.to_f - startTime
+        puts "Step finished: ... Elapsed time: " + elapsedTime.to_s
+    rescue Calabash::Android::Operations::OperationsError => oe
+        raise oe
+    rescue Exception => e
+        raise e
+    end
+end
+
+
+And /^that I have a working 3g connection that is not roaming$/ do
+    begin
+	puts 'Running step: ...'
+        startTime = Time.now.to_f
+#TODO: Implement this
+        elapsedTime = Time.now.to_f - startTime
+        puts "Step finished: ... Elapsed time: " + elapsedTime.to_s
+    rescue Calabash::Android::Operations::OperationsError => oe
+        raise oe
+    rescue Exception => e
+        raise e
+    end
+end
+
+
+
+And /^the Discover Widget has been added to the homescreen$/ do
+    begin
+	puts 'Running step: ...'
+        startTime = Time.now.to_f
+
+	performAction('wait', 1)
+	
+	#This will press 'back' button on the device - Press back button twice to get rid of the Change Log and Introduction screens
+	system 'adb shell input keyevent 4'
+	performAction('wait', 2)
+	system 'adb shell input keyevent 4'
+
+
+	#Go to next screen - assuming that the next screen has enough space for adding Discover widget
+	performAction('swipe', 'right')
+	performAction('wait', 5)
+	performAction('press_menu')
+	performAction('press_descendent_view', 'adw_config_indicator', 'Add')
+	performAction('press_descendent_view', 'adw_config_pager', 'Widgets')
+
+	system 'monkeyrunner WidgetPickList.py  Discover 0019c6fa7fc96e'
+
+
+        elapsedTime = Time.now.to_f - startTime
+        puts "Step finished: ... Elapsed time: " + elapsedTime.to_s
+    rescue Calabash::Android::Operations::OperationsError => oe
+        raise oe
+    rescue Exception => e
+        raise e
+    end
+end
+
+
+When /^I click on the Discover Widget$/ do
+    begin
+	puts 'Running step: ...'
+        startTime = Time.now.to_f
+	touch("ImageView id:'changelog_screen_width_phone'")
+	performAction('wait', 2)
+
+#TODO: This will press 'back' button on the device - Temp arrangment for getting rid of wifi related popup
+	#system 'adb shell input keyevent 4'
+	#performAction('wait', 2)
+
+#TODO: Wait for 6 hours
+	performAction('wait', 20)
+
+
+#TODO: Verify that automatic refresh has happened
+
+
+	#This will press 'back' button on the device - Takes us back to the screen where discover widget was added
+	system 'adb shell input keyevent 4'
+
+#TODO: Remove the discover widget from screen
+	#performAction('long_press_on_view_by_id', 'changelog_screen_width_phone')
+	performAction('click_on_text', 'Tap on the refresh button to update your services')
+	performAction('wait', 2)
+	performAction('press_long_on_text_and_select_with_index', 'Anleitung', 1)
+	performAction('wait', 2)
+	
+#TODO: swipe left again to go back to original state
+	performAction('swipe', 'left')
+	performAction('wait', 5)
+        elapsedTime = Time.now.to_f - startTime
+        puts "Step finished: ... Elapsed time: " + elapsedTime.to_s
+    rescue Calabash::Android::Operations::OperationsError => oe
+        raise oe
+    rescue Exception => e
+        raise e
+    end
+end
+
+
+
+Then /^the discover widget automatically refreshes and downloads all of the available content for that device, opco, updates version.$/ do
+    begin
+	puts 'Running step: ...'
+        startTime = Time.now.to_f
+#TODO: Implement this
+        elapsedTime = Time.now.to_f - startTime
+        puts "Step finished: ... Elapsed time: " + elapsedTime.to_s
+    rescue Calabash::Android::Operations::OperationsError => oe
+        raise oe
+    rescue Exception => e
+        raise e
+    end
+end
+
+

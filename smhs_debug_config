@@ -1,0 +1,5 @@
+debug: true
+disableparallelrequests: true
+apiurl: http://smhs-pre.sp.vodafone.com/bepre3/smhs/
+calapiurl: https://hap-pre.sp.vodafone.com/cal/smhsx-preprod/bepre3/smhs
+
