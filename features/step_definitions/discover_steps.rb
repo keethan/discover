@@ -1,3 +1,5 @@
+require 'calabash-android/operations'
+include Calabash::Android::Operations
 Given /^that I have a device with the Discover Client installed on it$/ do
     begin
 	puts 'Running step: ...'

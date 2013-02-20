@@ -89,9 +89,9 @@ When /^I click on the Discover Widget$/ do
     begin
 	puts 'Running step: ...'
         startTime = Time.now.to_f
-	#touch("ImageView id:'changelog_screen_width_phone'")
-	performAction('wait_for_view_by_id','changelog_screen_width_phone')
-performAction('click_on_view_by_id','changelog_screen_width_phone')
+	sleep 4
+	touch("ImageView id:'changelog_screen_width_phone'")
+
 	performAction('wait', 2)
 
 #TODO: This will press 'back' button on the device - Temp arrangment for getting rid of wifi related popup
