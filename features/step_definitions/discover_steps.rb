@@ -92,6 +92,7 @@ When /^I click on the Discover Widget$/ do
 	puts 'Running step: ...'
         startTime = Time.now.to_f
 	sleep 4
+	screenshot_embed
 	touch("ImageView id:'changelog_screen_width_phone'")
 
 	performAction('wait', 2)
@@ -102,7 +103,7 @@ When /^I click on the Discover Widget$/ do
 
 #TODO: Wait for 6 hours
 	performAction('wait', 20)
-
+screenshot_embed
 
 #TODO: Verify that automatic refresh has happened
 
@@ -116,10 +117,11 @@ When /^I click on the Discover Widget$/ do
 	performAction('wait', 2)
 	performAction('press_long_on_text_and_select_with_index', 'Anleitung', 1)
 	performAction('wait', 2)
-	
+	screenshot_embed
 #TODO: swipe left again to go back to original state
 	performAction('swipe', 'left')
 	performAction('wait', 5)
+	screenshot_embed
         elapsedTime = Time.now.to_f - startTime
         puts "Step finished: ... Elapsed time: " + elapsedTime.to_s
     rescue Calabash::Android::Operations::OperationsError => oe
