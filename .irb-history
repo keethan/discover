@@ -1,50 +1,50 @@
 exit
 start_test_server_in_background
-performAction('long_press_on_view_by_id', 'changelog_screen_width_phone')
-query('ImageView')
-query('ImageView', :id)
-performAction('long_press_on_view_by_id', 'changelog_screen_width_phone')
-touch("ImageView id:'changelog_screen_width_phone'")
-query("imageview id:'changelog_screen_width_phone'")
-performAction('click_on_view_by_id', 'changelog_screen_width_phone')
-query("imageview id:'changelog_screen_width_phone'")
-touch("ImageView id:'changelog_screen_width_phone'")
-exit
-query('AndroidAppWidgetView')
-query('AppWidgetHostView')
-query('AppWidgetHostView')
+performAction('drag', 90, 10, 50, 50, 5)
+performAction('drag', 90, 10, 50, 50, 10)
+performAction('drag', 90, 10, 50, 50, 20)
+performAction('drag', 90, 10, 40, 40, 20)
+performAction('drag', 90, 10, 40, 40, 20)
+performAction('drag', 90, 10, 50, 50, 10)
+performAction('drag', 90, 10, 50, 50, 10)
+performAction('drag', 10, 90, 50, 50, 10)
 exit
 start_test_server_in_background
-query('AppWidgetHostView')
-exit
-start_test_server_in_background
-performAction('press_long_on_text_and_select_with_index', 'changelog_screen_width_phone', 1)
 query('textview')
+performAction('inspect_current_dialog')
+exit
+start_test_server_in_background
+start_test_server_in_background
+exit
+exit
+start_test_server_in_background
+performAction('drag', 90, 10, 50, 50, 10)
+performAction('press_menu')
+performAction('press_descendent_view', 'adw_config_indicator', 'Add')
+performAction('press_descendent_view', 'adw_config_pager', 'Widgets')
+exit
+start_test_server_in_background
+query('textview', :text)
+exit
+start_test_server_in_background
+query('textview', :text)
+query('textview', :text)
 query('textview', :text)
 performAction('press_long_on_text_and_select_with_index', 'Anleitung', 1)
+performAction('inspect_current_dialog')
 exit
 start_test_server_in_background
-performAction('click_on_text', 'Tap on the refresh button to update your services');
+performAction('long_press_on_view_by_id', 'changelog_screen_width_phone')
+touch("ImageView id:'changelog_screen_width_phone'")
+performAction('long_press_on_view_by_id', 'org.adw.launcher:dimen/changelog_screen_width_phone')
+performAction('long_press_on_view_by_id', 'org.adw.launcher:dimen/changelog_screen_width_phone')
 exit
 start_test_server_in_background
-query("ImageView")
-query("ImageView id:changelog_screen_width_phone")
-query("ImageView",  id:'changelog_screen_width_phone')
-query("ImageView",  :id 'changelog_screen_width_phone')
-query("ImageView id:'changelog_screen_width_phone'")
-query("ImageView")
-query("ImageView", :id)
-start_test_server_in_background
-query("imageView")
-query("view")
-query("textview")
-performAction('click_on_view_by_id','appwidgetpicker_textview'
-performAction('click_on_view_by_id','appwidgetpicker_textview')
-performAction('click_on_view_by_id','appwidgetpicker_textview')
-exit
-start_test_server_in_background
-performAction('click_on_view_by_id','appwidgetpicker_textview')
-exit
-start_test_server_in_background
-query("ImageView id:'changelog_screen_width_phone'")
+performAction('long_press_on_view_by_id', 'org.adw.launcher:dimen/changelog_screen_width_phone')
+query('textview')
+query('textview', :text)
+query('textview', :text :id)
+query('textview', :text, :id)
+query('textview')
+performAction('click_on_text', 'Remove')
 exit
