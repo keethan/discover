@@ -1,3 +1,17 @@
+puts ENV["TEST_DEVICE_ARG"]
+puts $ADB_DEVICE_ARG
+puts ENV["ADB_DEVICE_ARG"]
+exit
+start_test_server_in_background
+performAction('drag', 90, 10, 50, 50)
+performAction('drag', '90', '10', '50', '50')
+performAction('drag', 90, 10, 50, 50, 5)
+performAction('drag', 90, 10, 50, 50, 5)
+performAction('drag', 90, 10, 80, 80, 5)
+performAction('drag', 90, 60, 80, 80, 5)
+performAction('drag', 90, 60, 80, 80, 5)
+performAction('drag', 90, 60, 80, 80, 5)
+performAction('drag', 90, 10, 80, 80, 5)
 exit
 start_test_server_in_background
 performAction('drag', 90, 10, 50, 50, 5)
@@ -28,23 +42,9 @@ query('textview', :text)
 exit
 start_test_server_in_background
 query('textview', :text)
-query('textview', :text)
-query('textview', :text)
-performAction('press_long_on_text_and_select_with_index', 'Anleitung', 1)
+query('textview', :id)
+exit
+start_test_server_in_background
 performAction('inspect_current_dialog')
-exit
-start_test_server_in_background
-performAction('long_press_on_view_by_id', 'changelog_screen_width_phone')
-touch("ImageView id:'changelog_screen_width_phone'")
-performAction('long_press_on_view_by_id', 'org.adw.launcher:dimen/changelog_screen_width_phone')
-performAction('long_press_on_view_by_id', 'org.adw.launcher:dimen/changelog_screen_width_phone')
-exit
-start_test_server_in_background
-performAction('long_press_on_view_by_id', 'org.adw.launcher:dimen/changelog_screen_width_phone')
-query('textview')
-query('textview', :text)
-query('textview', :text :id)
-query('textview', :text, :id)
-query('textview')
-performAction('click_on_text', 'Remove')
+performAction('click_on_view_by_id', 'org.adw.launcher:dimen/changelog_screen_height_tablet_port')
 exit

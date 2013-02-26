@@ -10,7 +10,6 @@ Given /^that I have a device with the Discover Client installed on it$/ do
 end
 
 
-
 And /^that the client has not yet been activated$/ do
 	puts 'Running step: ...'
         startTime = Time.now.to_f
@@ -23,6 +22,15 @@ And /^that the client has not yet been activated$/ do
 end
 
 
+And /^that the client has been activated$/ do
+	puts 'Running step: ...'
+        startTime = Time.now.to_f
+#TODO: Implement this
+        elapsedTime = Time.now.to_f - startTime
+        puts "Step finished: ... Elapsed time: " + elapsedTime.to_s
+end
+
+
 And /^that I have a working 3g connection that is not roaming$/ do
 	puts 'Running step: ...'
         startTime = Time.now.to_f
@@ -30,6 +38,15 @@ And /^that I have a working 3g connection that is not roaming$/ do
         elapsedTime = Time.now.to_f - startTime
         puts "Step finished: ... Elapsed time: " + elapsedTime.to_s
 end
+
+And /^that I have a working 3g connection$/ do
+	puts 'Running step: ...'
+        startTime = Time.now.to_f
+#TODO: Implement this
+        elapsedTime = Time.now.to_f - startTime
+        puts "Step finished: ... Elapsed time: " + elapsedTime.to_s
+end
+
 
 
 
@@ -44,32 +61,32 @@ And /^the Discover Widget has been added to the homescreen$/ do
 	performAction('wait', 2)
 	system 'adb -s ' + ENV['ADB_DEVICE_ARG'] + ' shell input keyevent 4'
 
-	screenshot_embed # Adw Launcher default home screeen
+	#screenshot_embed # Adw Launcher default home screeen
 
 
 	#Go to next screen - assuming that the next screen has enough space for adding Discover widget
 	#performAction('swipe', 'right') -- Sometimes this fails, too short for some of the devices
 	performAction('drag', 90, 10, 50, 50, 10) # This is equivalent to swipe right. The numbers are in percent. (fromX, toX, fromY, toY, steps).
 	performAction('wait', 2)
-	screenshot_embed # Adw Launcher blank home screeen
+	#screenshot_embed # Adw Launcher blank home screeen
 	performAction('press_menu')
 	performAction('press_descendent_view', 'adw_config_indicator', 'Add')
-	screenshot_embed
+	#screenshot_embed
 	performAction('press_descendent_view', 'adw_config_pager', 'Widgets')
 
 	performAction('wait', 2) # It takes a while to load widgets list on 4.1.1
-	screenshot_embed
+	#screenshot_embed
 	system 'monkeyrunner WidgetPickList.py  Discover ' + ENV['ADB_DEVICE_ARG']
 	
 	versionCommand = 'adb -s ' + ENV['ADB_DEVICE_ARG'] + ' shell getprop ro.build.version.release'
 	androidVersion = `#{versionCommand}`.chomp
 	if androidVersion == "4.1.1" then
 		performAction('wait_for_view_by_id', 'appwidgetpicker_textview')
-		screenshot_embed # Widget size selection
+		#screenshot_embed # Widget size selection
 		performAction('click_on_view_by_id', 'appwidgetpicker_textview')
 	end
 	sleep 4
-	screenshot_embed # discover widget added
+	#screenshot_embed # discover widget added
 
         elapsedTime = Time.now.to_f - startTime
         puts "Step finished: ... Elapsed time: " + elapsedTime.to_s
@@ -94,7 +111,7 @@ When /^I click on the Discover Widget$/ do
 #performAction('wait_for_text', 'Network problem')
 #performAction('click_on_text', 'Ok')
 	
-	screenshot_embed
+	#screenshot_embed
 
 
 #TODO: Verify that automatic refresh has happened
@@ -103,7 +120,7 @@ When /^I click on the Discover Widget$/ do
 	#This will press 'back' button on the device - Takes us back to the screen where discover widget was added
 	system 'adb -s ' + ENV['ADB_DEVICE_ARG'] + ' shell input keyevent 4'
 
-	screenshot_embed # back to discover widget
+	#screenshot_embed # back to discover widget
 
 	#Remove the discover widget from screen
 	#performAction('long_press_on_view_by_id', 'changelog_screen_width_phone')
@@ -113,21 +130,46 @@ When /^I click on the Discover Widget$/ do
 	performAction('long_press_on_view_by_id', 'org.adw.launcher:dimen/changelog_screen_width_phone')
 	performAction('click_on_text', 'Remove')
 	performAction('wait', 2)
-	screenshot_embed
-	#performAction('swipe', 'left')
-	performAction('drag', 10, 90, 50, 50, 10)
-	performAction('wait', 2)
-	screenshot_embed
+	#screenshot_embed
         elapsedTime = Time.now.to_f - startTime
         puts "Step finished: ... Elapsed time: " + elapsedTime.to_s
 end
 
+When /^I select the refresh button on the Discover Widget$/ do
+	puts 'Running step: ...'
+        startTime = Time.now.to_f
+	performAction('click_on_view_by_id', 'org.adw.launcher:dimen/changelog_screen_height_tablet_port')
+	performAction('wait', 2)
+        elapsedTime = Time.now.to_f - startTime
+        puts "Step finished: ... Elapsed time: " + elapsedTime.to_s
+end
+
+
+Then /^the Discover Widget will complete a manual refresh$/ do
+	puts 'Running step: ...'
+        startTime = Time.now.to_f
+#TODO: Implement this
+	
+	#performAction('swipe', 'left')
+	performAction('drag', 10, 90, 50, 50, 10)
+	performAction('wait', 2)
+	#screenshot_embed
+
+        elapsedTime = Time.now.to_f - startTime
+        puts "Step finished: ... Elapsed time: " + elapsedTime.to_s
+end
 
 
 Then /^the discover widget automatically refreshes and downloads all of the available content for that device, opco, updates version.$/ do
 	puts 'Running step: ...'
         startTime = Time.now.to_f
 #TODO: Implement this
+	
+	#performAction('swipe', 'left')
+	performAction('drag', 10, 90, 50, 50, 10)
+	performAction('wait', 2)
+	#screenshot_embed
+
         elapsedTime = Time.now.to_f - startTime
         puts "Step finished: ... Elapsed time: " + elapsedTime.to_s
 end
