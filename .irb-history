@@ -1,29 +1,3 @@
-puts ENV["TEST_DEVICE_ARG"]
-puts $ADB_DEVICE_ARG
-puts ENV["ADB_DEVICE_ARG"]
-exit
-start_test_server_in_background
-performAction('drag', 90, 10, 50, 50)
-performAction('drag', '90', '10', '50', '50')
-performAction('drag', 90, 10, 50, 50, 5)
-performAction('drag', 90, 10, 50, 50, 5)
-performAction('drag', 90, 10, 80, 80, 5)
-performAction('drag', 90, 60, 80, 80, 5)
-performAction('drag', 90, 60, 80, 80, 5)
-performAction('drag', 90, 60, 80, 80, 5)
-performAction('drag', 90, 10, 80, 80, 5)
-exit
-start_test_server_in_background
-performAction('drag', 90, 10, 50, 50, 5)
-performAction('drag', 90, 10, 50, 50, 10)
-performAction('drag', 90, 10, 50, 50, 20)
-performAction('drag', 90, 10, 40, 40, 20)
-performAction('drag', 90, 10, 40, 40, 20)
-performAction('drag', 90, 10, 50, 50, 10)
-performAction('drag', 90, 10, 50, 50, 10)
-performAction('drag', 10, 90, 50, 50, 10)
-exit
-start_test_server_in_background
 query('textview')
 performAction('inspect_current_dialog')
 exit
@@ -47,4 +21,30 @@ exit
 start_test_server_in_background
 performAction('inspect_current_dialog')
 performAction('click_on_view_by_id', 'org.adw.launcher:dimen/changelog_screen_height_tablet_port')
+exit
+start_test_server_in_background
+exit
+start_test_server_in_background
+performAction('inspect_current_dialog')
+performAction('wait_for_view_by_id', 'org.adw.launcher:id/adw_changelog_pager')
+performAction('wait_for_view_by_id', 'org.adw.launcher:id/adw_changelog_page')
+performAction('wait_for_view_by_id', 'org.adw.launcher:id/adw_changelog_pager')
+performAction('inspect_current_dialog')
+performAction('wait_for_view_by_id', 'org.adw.launcher:id/adw_helper_pager')
+exit
+start_test_server_in_background
+performAction('inspect_current_dialog')
+exit
+start_test_server_in_background
+exit
+exit
+start_test_server_in_background
+query('imageview', :id)
+query('imageview', :id)
+touch("ImageView id:'changelog_screen_width_phone'")
+exit
+start_test_server_in_background
+touch("ImageView id:'changelog_screen_width_phone'")
+exit
+start_test_server_in_background
 exit
